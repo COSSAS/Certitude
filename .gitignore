@@ -1,0 +1,12 @@
+__pycache__
+*.ipynb
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+.venv
+dist/
+.vscode
+.mypy_cache
+.pytest_cache
+config.yml
+/.coverage*
+*.joblib

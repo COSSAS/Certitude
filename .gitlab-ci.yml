@@ -1,0 +1,54 @@
+variables:
+  PYTHON_PACKAGE: "certitude"
+
+include:
+  - project: "notno/ci-templates"
+    file: "pipelines/poetry/docker-pro.yml"
+  - project: "notno/ci-templates"
+    file: "python/vulture.yml"
+  - project: "notno/ci-templates"
+    file: "other/gitlab/project-settings.yml"
+
+gitlab:project-settings:
+  variables:
+    AUTO_FIX: "true"
+  allow_failure: false
+
+python:pylint:
+  variables:
+    PYLINT_THRESHOLD: "7"
+
+python:mypy:
+  allow_failure: true
+
+python:pylic:
+  stage: test
+  image: python:alpine
+  script:
+    - pip install pylic
+    - pylic check
+  needs: []
+
+certitude:train:
+  stage: test
+  image:
+    name: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+    entrypoint: [""]
+  script:
+    - python -m certitude --train /tmp/newmodel.joblib -d tests/data/testset_labeled.csv
+
+certitude:url:
+  stage: test
+  image:
+    name: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+    entrypoint: [""]
+  script:
+    - python -m certitude --url https://www.tno.nl/en/about-tno/ --model certitude/utils/data/default_model.pkl
+
+python:semantic-release:version:
+  rules:
+    - when: never
+
+semantic-release:
+  rules:
+    - when: never

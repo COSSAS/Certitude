@@ -1,0 +1,35 @@
+---
+features:
+- lex_ft_nr_of_domains
+- lex_ft_length_first_subdomain
+- lex_ft_length_tld
+- lex_ft_netloc_length
+- lex_ft_query_length
+- lex_ft_path_length
+- lex_ft_ratio_netloc_path
+- lex_ft_nr_dots_query
+- lex_ft_nr_dots_path
+- lex_ft_nr_at_query
+- lex_ft_nr_at_path
+- lex_ft_nr_percent_query
+- lex_ft_nr_percent_path
+- lex_ft_nr_del_query
+- lex_ft_nr_del_path
+- lex_ft_has_port
+- lex_ft_contains_puny
+- lex_ft_is_http
+- lex_ft_domain_entropy
+- lex_ft_query_entropy
+- lex_ft_path_entropy
+- cert_ft_wildcard_cert
+- cert_ft_no_certs_found
+- cert_ft_nr_of_certs
+- cert_ft_days_since_valid
+- cert_ft_days_since_expiry
+- cert_ft_renewal_days_mean
+- cert_ft_whois_creation_age_days
+- cert_ft_whois_dnssec
+- cert_ft_whois_expiry_days
+- cert_ft_free_ca_issuer
+- cert_ft_valid_period
+set_missing_whois_to_zero: true
