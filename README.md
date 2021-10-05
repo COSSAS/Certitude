@@ -42,3 +42,9 @@ ensure you're in the WSL home directory
 - Run `code .` to start VS Code
 - In a VS Code terminal, run `poetry install`, `poetry shell` and finally
 `poetry run pre-commit install`
+
+# Contributing
+
+This project is:
+* hosted at gitlab.com/cossas/certitude, please open MR and issues here
+* mirrored to github.com/cossas/certitude, please don't open MR and issues here
