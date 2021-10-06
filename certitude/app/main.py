@@ -82,7 +82,7 @@ def main(args: Dict) -> None:
                     url_obj.features_dataframe[config["features"]]
                 )
 
-                if prediction[0]:
+                if prediction[0] == 1:
                     result = "URL is Malicious"
                 else:
                     result = "URL is Safe"
