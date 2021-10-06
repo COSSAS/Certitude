@@ -14,6 +14,9 @@ gitlab:project-settings:
     AUTO_FIX: "true"
   allow_failure: false
 
+grype:
+  allow_failure: true
+
 python:pylint:
   variables:
     PYLINT_THRESHOLD: "7"
