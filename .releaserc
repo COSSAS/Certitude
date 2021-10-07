@@ -1,0 +1,18 @@
+{
+  "plugins": [
+    [
+      "@semantic-release/exec",
+      {
+        "verifyReleaseCmd": "echo ${nextRelease.version} > .VERSION"
+      }
+    ],
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+  ["@semantic-release/git", {
+      "assets": ["CHANGELOG.md", "pyproject.toml", "tbump.toml", "certitude/__init__.py"],
+      "message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}"
+    }],
+  "@semantic-release/gitlab"
+  ]
+}
