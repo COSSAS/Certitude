@@ -160,9 +160,9 @@ class CertificateCollection:
     sql_db_cursor = None
 
     def __init__(self, url_object: URL) -> None:
-        logging.debug("url_object netloc %s", url_object.netloc)
+        logger.debug("url_object netloc %s", url_object.netloc)
         self.c_name = url_object.netloc
-        logging.debug("c_name %s", self.c_name)
+        logger.debug("c_name %s", self.c_name)
         self.cert_df = Certsearch().find(self.c_name)
         self.ft_wildcard_cert = False
 
@@ -288,7 +288,7 @@ def process_url(url: str) -> URL:
     logger.debug(f"URL: {url}")
     try:
         url_obj = URL(url)
-        logging.debug("url netloc %s", url_obj.netloc)
+        logger.debug("url netloc %s", url_obj.netloc)
         url_obj.feature_extraction()
         cert_collection_obj = CertificateCollection(url_obj)
         cert_collection_obj.certificate_features()
@@ -330,10 +330,10 @@ def process_labeled_url_dict(url_dict: Dict) -> None:
             url_obj.features_dataframe["label"] = url_dict[2]
             ns.feature_df = ns.feature_df.append(url_obj.features_dataframe)
         except IndexError:
-            logging.warning(
+            logger.warning(
                 f"No label was found for this URL. {url_obj.netloc} not added to the training dataframe."
             )
-        logging.debug(f"Dataframe shape for this URL: {ns.feature_df.shape}")
+        logger.debug(f"Dataframe shape for this URL: {ns.feature_df.shape}")
 
 
 def create_features_dataframe(
