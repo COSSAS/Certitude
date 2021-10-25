@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "certitude"
-version = "0.3.1"
+version = "1.0.0"
 description = "Determine if a URL may be malicious"
 authors = ["Paul Wiper <paul.wiper@tno.nl>", "Marie Beth van Egmond <marie_beth.vanegmond@tno.nl"]
 license = "MPL-2.0"
