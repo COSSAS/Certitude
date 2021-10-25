@@ -48,3 +48,12 @@ ensure you're in the WSL home directory
 This project is:
 * hosted at gitlab.com/cossas/certitude, please open MR and issues here
 * mirrored to github.com/cossas/certitude, please don't open MR and issues here
+
+# Maintainance status
+
+This project has been developed until TRL4 and is currently not actively maintained.
+We envision the following steps to raise the TRL from 4 to 6 with the following steps:
+- Technical trials in security pipelines of small to midsized companies.
+- Retraining of the default model using company security data.
+- Validating the accuracy of the packages' classification method in relevant circumstances.
+- Improving the package on shortcomings for the needs of a small to midsized company.
