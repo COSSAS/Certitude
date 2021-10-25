@@ -29,3 +29,4 @@ certitude:url:
   script:
     - python -m certitude --url https://www.tno.nl/en/about-tno/ --model certitude/utils/data/default_model.pkl
     - python -m certitude --url https://www.sjfkhadsfsdaklfdjsfhas.com/phi --model certitude/utils/data/default_model.pkl
+    - python -m certitude --url https://www.sjfkhadsfsdaklfdjsfhas.com/phi -v --model certitude/utils/data/default_model.pkl

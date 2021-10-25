@@ -1,5 +1,4 @@
 import logging
-import os
 import sys
 from importlib import resources
 from pathlib import Path
@@ -8,6 +7,7 @@ from typing import Dict
 import joblib
 import whois
 
+import certitude
 import certitude.utils.data
 from certitude.core.data_model import (
     create_features_dataframe,
@@ -16,16 +16,12 @@ from certitude.core.data_model import (
 )
 from certitude.utils.config import config
 
+logging.basicConfig()
 config = config()
 
 
-def set_loglevel():
-    for handler in logging.root.handlers[:]:
-        logging.root.removeHandler(handler)
-    logging.basicConfig(
-        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-        level=os.environ.get(key="LOG_LEVEL", default="INFO").upper(),
-    )
+def set_loglevel(level: int = logging.INFO):
+    logging.getLogger(certitude.__package__).setLevel(level)
 
 
 set_loglevel()
@@ -64,11 +60,11 @@ def main(args: Dict) -> None:
 
     if args.url:
         if "//" not in args.url:
-            logging.critical(
+            logger.critical(
                 "url provided %s is not RFC 1808 compliant. You are probably missing http:// or https://",
                 args.url,
             )
-            logging.critical(
+            logger.critical(
                 "see https://docs.python.org/3/library/urllib.parse.html#url-parsing"
             )
             sys.exit(1)
@@ -87,9 +83,9 @@ def main(args: Dict) -> None:
                 else:
                     result = "URL is Safe"
 
-                logging.critical(f"{args.url}: {result}")
+                logger.critical(f"{args.url}: {result}")
                 return None
-        logging.critical(f"{args.url} not found.")
+        logger.critical(f"{args.url} not found.")
 
     if args.batch:
         model = load_model(model=args.model)
@@ -101,11 +97,11 @@ def load_model(model):
         model = joblib.load(model)
         return model
     else:
-        logging.critical(
+        logger.critical(
             "url classification requested, but no model provided! You must pass a model with --model"
         )
         sys.exit(1)
-        # logging.warning("no model was provided, will use default model")
+        # logger.warning("no model was provided, will use default model")
         # with resources.path(
         #     certitude.utils.data, "default_model.pkl"
         # ) as model_path:
