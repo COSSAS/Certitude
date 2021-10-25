@@ -1,4 +1,5 @@
-FROM python:3.9-slim
+ARG PYVERSION=3.9-slim
+FROM python:$PYVERSION
 
 RUN apt-get update && apt-get install -y whois
 

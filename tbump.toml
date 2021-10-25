@@ -1,9 +1,6 @@
 [version]
 current = "0.3.1"
 
-# Example of a semver regexp.
-# Make sure this matches current_version before
-# using tbump
 regex = '''
   (?P<major>\d+)
   \.
@@ -16,29 +13,8 @@ regex = '''
 message_template = "Bump to {new_version}"
 tag_template = "v{new_version}"
 
-# For each file to patch, add a [[file]] config
-# section containing the path of the file, relative to the
-# tbump.toml location.
 [[file]]
 src = "pyproject.toml"
-[[file]]
-src = "tbump.toml"
+
 [[file]]
 src = "certitude/__init__.py"
-[[file]]
-src = "deployment/docker-compose.yml"
-
-
-# You can specify a list of commands to
-# run after the files have been patched
-# and before the git commit is made
-
-#  [[before_commit]]
-#  name = "check changelog"
-#  cmd = "grep -q {new_version} Changelog.rst"
-
-# Or run some commands after the git tag and the branch
-# have been pushed:
-#  [[after_push]]
-#  name = "publish"
-#  cmd = "./publish.sh"
