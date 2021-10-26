@@ -52,7 +52,7 @@ This project is:
 # Maintainance status
 
 This project has been developed until TRL4 and is currently not actively maintained.
-We envision the following steps to raise the TRL from 4 to 6 with the following steps:
+We envision the following steps to raise the TRL from 4 to 6:
 - Technical trials in security pipelines of small to midsized companies.
 - Retraining of the default model using company security data.
 - Validating the accuracy of the packages' classification method in relevant circumstances.
