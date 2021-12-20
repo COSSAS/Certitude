@@ -30,3 +30,27 @@ certitude:url:
     - python -m certitude --url https://www.tno.nl/en/about-tno/ --model certitude/utils/data/default_model.pkl
     - python -m certitude --url https://www.sjfkhadsfsdaklfdjsfhas.com/phi --model certitude/utils/data/default_model.pkl
     - python -m certitude --url https://www.sjfkhadsfsdaklfdjsfhas.com/phi -v --model certitude/utils/data/default_model.pkl
+
+create_badge_svg:
+  stage: build
+  image: python:3.6.6
+  tags:
+    - docker
+  script:
+    - echo "Python other dependencies installation"
+  after_script:
+    - pip install anybadge
+    - commits=$(git rev-list --all --count)
+    - anybadge -l commits -v $commits -f commits.svg -c green
+    - anybadge --value=MPL-2.0 -c orange -f license.svg --label=license
+    - last_tag=$(git describe --tags)
+    - anybadge -v $last_tag --label=version -c blue -f version.svg
+    - anybadge --value=black --label="code style" -c black -f code-style.svg
+  artifacts:
+    paths:
+        - commits.svg
+        - license.svg
+        - version.svg
+        - code-style.svg
+    when: always
+    expire_in: 2 weeks
