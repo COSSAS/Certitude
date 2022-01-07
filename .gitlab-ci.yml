@@ -53,4 +53,4 @@ create_badge_svg:
         - version.svg
         - code-style.svg
     when: always
-    expire_in: 2 weeks
+    expire_in: 52 weeks
