@@ -1,11 +1,11 @@
 <div align="center">
 <a href="https://gitlab.com/cossas/certitude/-/tree/master"><img src="docs/CERTITUDE.gif" height="300px" />
 
-![Commits](https://gitlab.com/cossas/certitude/-/jobs/artifacts/README/raw/commits.svg?job=create_badge_svg)
+![Commits](https://gitlab.com/cossas/certitude/-/jobs/artifacts/master/raw/commits.svg?job=create_badge_svg)
 ![Pipeline status](https://gitlab.com/cossas/certitude/badges/master/pipeline.svg)
-![Version](https://gitlab.com/cossas/certitude/-/jobs/artifacts/README/raw/version.svg?job=create_badge_svg)
-![License: MPL2.0](https://gitlab.com/cossas/certitude/-/jobs/artifacts/README/raw/license.svg?job=create_badge_svg)
-![Code-style](https://gitlab.com/cossas/certitude/-/jobs/artifacts/README/raw/code-style.svg?job=create_badge_svg)
+![Version](https://gitlab.com/cossas/certitude/-/jobs/artifacts/master/raw/version.svg?job=create_badge_svg)
+![License: MPL2.0](https://gitlab.com/cossas/certitude/-/jobs/artifacts/master/raw/license.svg?job=create_badge_svg)
+![Code-style](https://gitlab.com/cossas/certitude/-/jobs/artifacts/master/raw/code-style.svg?job=create_badge_svg)
 </div>
 
 <hr style="border:2px solid gray"> </hr>
