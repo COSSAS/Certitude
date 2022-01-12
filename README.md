@@ -1,18 +1,21 @@
 <div align="center">
 <a href="https://gitlab.com/cossas/certitude/-/tree/master"><img src="docs/CERTITUDE.gif" height="300px" />
 
+![Website](https://img.shields.io/badge/website-cossas--project.org-orange)
 ![Commits](https://gitlab.com/cossas/certitude/-/jobs/artifacts/master/raw/commits.svg?job=create_badge_svg)
 ![Pipeline status](https://gitlab.com/cossas/certitude/badges/master/pipeline.svg)
 ![Version](https://gitlab.com/cossas/certitude/-/jobs/artifacts/master/raw/version.svg?job=create_badge_svg)
 ![License: MPL2.0](https://gitlab.com/cossas/certitude/-/jobs/artifacts/master/raw/license.svg?job=create_badge_svg)
 ![Code-style](https://gitlab.com/cossas/certitude/-/jobs/artifacts/master/raw/code-style.svg?job=create_badge_svg)
-</div>
+</div></a>
 
 <hr style="border:2px solid gray"> </hr>
 <div align="center">
-Certitude is a python package to perform supervised malicious URL classification using a joint set of lexicographic and certificate features.
+Certitude is a Python package to perform supervised malicious URL classification using a joint set of lexicographic and certificate features.
 </div>
 <hr style="border:2px solid gray"> </hr>
+
+_All COSSAS projects are hosted on [GitLab](https://gitlab.com/cossas/dgad/) with a push mirror to GitHub. For issues/contributions check [CONTRIBUTING.md](CONTRIBUTING.md)_ 
 
 ## <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a9.png" height="30px"> Getting Started
 
@@ -59,9 +62,7 @@ make demo
 
 ## <img src="https://github.githubassets.com/images/icons/emoji/unicode/26a1.png" height="30px"> Contributing
 
-This project is:
-* hosted at gitlab.com/cossas/certitude, please open MR and issues here
-* mirrored to github.com/cossas/certitude, please don't open MR and issues here
+Contributions to CERTITUDE are highly appreciated and more than welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for more information about our contributions process. 
 
 ## <img src="https://github.githubassets.com/images/icons/emoji/unicode/1f4dc.png" height="30px"> Maintainance status
 
