@@ -1,5 +1,5 @@
 <div align="center">
-<a href="https://gitlab.com/cossas/certitude/-/tree/master"><img src="docs/CERTITUDE.gif" height="300px" />
+<a href="https://gitlab.com/cossas/certitude/-/tree/master"><img src="docs/CERTITUDE-logo.jpeg" height="100px" />
 
 ![Website](https://img.shields.io/badge/website-cossas--project.org-orange)
 ![Commits](https://gitlab.com/cossas/certitude/-/jobs/artifacts/master/raw/commits.svg?job=create_badge_svg)
