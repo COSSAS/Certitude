@@ -30,10 +30,24 @@ certitude:url:
     - python -m certitude --url https://www.sjfkhadsfsdaklfdjsfhas.com/phi --model certitude/utils/data/default_model.pkl
     - python -m certitude --url https://www.sjfkhadsfsdaklfdjsfhas.com/phi -v --model certitude/utils/data/default_model.pkl
 
+badge:prepare:
+  stage: .pre
+  image:
+    name: alpine/git
+    entrypoint: [""]
+  script:
+    - echo "COMMIT_COUNT=$(git rev-list --all --count)" > badges.env
+    - echo "LATEST_TAG=$(git tag | sort -V | tail -1)" >> badges.env
+  artifacts:
+    reports:
+      dotenv: badges.env
+
+.badge:
+  dependencies:
+    - badge:prepare
+
 badge:commits:
   extends: .badge
-  before_script:
-    - COMMIT_COUNT=$(git rev-list --all --count)
   variables:
     LABEL: "commits"
     VALUE: "${COMMIT_COUNT}"
@@ -42,8 +56,6 @@ badge:commits:
 
 badge:version:
   extends: .badge
-  before_script:
-    - LATEST_TAG=$(git tag | sort -g | tail -1)
   variables:
     LABEL: "version"
     VALUE: "${LATEST_TAG}"
