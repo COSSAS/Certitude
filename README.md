@@ -2,11 +2,11 @@
 <a href="https://gitlab.com/cossas/certitude/-/tree/master"><img src="docs/CERTITUDE-logo.jpeg" height="100px" />
 
 ![Website](https://img.shields.io/badge/website-cossas--project.org-orange)
-![Commits](https://gitlab.com/cossas/certitude/-/jobs/artifacts/master/raw/commits.svg?job=create_badge_svg)
+![Commits](https://gitlab.com/cossas/certitude/-/jobs/artifacts/master/raw/ci_badges/commits.svg?job=badge:commits)
 ![Pipeline status](https://gitlab.com/cossas/certitude/badges/master/pipeline.svg)
-![Version](https://gitlab.com/cossas/certitude/-/jobs/artifacts/master/raw/version.svg?job=create_badge_svg)
-![License: MPL2.0](https://gitlab.com/cossas/certitude/-/jobs/artifacts/master/raw/license.svg?job=create_badge_svg)
-![Code-style](https://gitlab.com/cossas/certitude/-/jobs/artifacts/master/raw/code-style.svg?job=create_badge_svg)
+![Version](https://gitlab.com/cossas/certitude/-/jobs/artifacts/master/raw/ci_badges/version.svg?job=badge:version)
+![License: MPL2.0](https://gitlab.com/cossas/certitude/-/jobs/artifacts/master/raw/ci_badges/license.svg?job=badge:license)
+![Code-style](https://gitlab.com/cossas/certitude/-/jobs/artifacts/master/raw/ci_badges/code-style.svg?job=badge:code-style)
 </div></a>
 
 <hr style="border:2px solid gray"> </hr>

@@ -5,12 +5,11 @@ variables:
   KANIKO_EXTRA_ARGS: "--build-arg=PYVERSION"
 
 include:
-  - project: "notno/ci-templates"
-    file: "templates/python-docker.yml"
-    ref: 'v4.0.0-beta.16'
-
-grype:
-  allow_failure: true
+  - project: just-ci/templates
+    file:
+      - templates/python-docker.yml
+      - project-automation/badge.yml
+    ref: v4.1.2
 
 python:pylint:
   variables:
@@ -31,26 +30,38 @@ certitude:url:
     - python -m certitude --url https://www.sjfkhadsfsdaklfdjsfhas.com/phi --model certitude/utils/data/default_model.pkl
     - python -m certitude --url https://www.sjfkhadsfsdaklfdjsfhas.com/phi -v --model certitude/utils/data/default_model.pkl
 
-create_badge_svg:
-  stage: build
-  image: python:3.6.6
-  tags:
-    - docker
-  script:
-    - echo "Python other dependencies installation"
-  after_script:
-    - pip install anybadge
-    - commits=$(git rev-list --all --count)
-    - anybadge -l commits -v $commits -f commits.svg -c green
-    - anybadge --value=MPL-2.0 -c orange -f license.svg --label=license
-    - last_tag=$(git describe --tags)
-    - anybadge -v $last_tag --label=version -c blue -f version.svg
-    - anybadge --value=black --label="code style" -c black -f code-style.svg
-  artifacts:
-    paths:
-        - commits.svg
-        - license.svg
-        - version.svg
-        - code-style.svg
-    when: always
-    expire_in: 52 weeks
+badge:commits:
+  extends: .badge
+  before_script:
+    - COMMIT_COUNT=$(git rev-list --all --count)
+  variables:
+    LABEL: "commits"
+    VALUE: "${COMMIT_COUNT}"
+    COLOR: "green"
+    URL: "${CI_PROJECT_URL}"
+
+badge:version:
+  extends: .badge
+  before_script:
+    - LATEST_TAG=$(git tag | sort -g | tail -1)
+  variables:
+    LABEL: "version"
+    VALUE: "${LATEST_TAG}"
+    COLOR: "blue"
+    URL: "${CI_PROJECT_URL}"
+
+badge:license:
+  extends: .badge
+  variables:
+    LABEL: "license"
+    VALUE: "MPL-2.0"
+    COLOR: "orange"
+    URL: "${CI_PROJECT_URL}"
+
+badge:code-style:
+  extends: .badge
+  variables:
+    LABEL: "code-style"
+    VALUE: "black"
+    COLOR: "black"
+    URL: "${CI_PROJECT_URL}"
